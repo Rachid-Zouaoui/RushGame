@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1495702698947" TestSessionContainerId="785e214f-5b5a-4b9a-8ded-edafb97a2dfb" version="1.0">
+<SrcFileList>
+<SrcFile Content="package rushgame;&#13;&#10;&#13;&#10;public class RushHour {&#13;&#10;&#9;public int[][] griglia = new int[6][6];&#13;&#10;&#9;&#13;&#10;&#9;public RushHour() {&#13;&#10;&#9;&#9;griglia[2][2] = 1;&#13;&#10;&#9;&#9;griglia[4][1] = 5;&#13;&#10;&#9;&#9;griglia[0][3] = 6;&#13;&#10;&#9;&#9;griglia[1][5] = 2;&#13;&#10;&#9;&#9;griglia[2][5] = 3;&#13;&#10;&#9;&#9;griglia[3][5] = 4;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * Metodo per muovere una macchina sulla griglia.&#13;&#10;&#9; * @param row = riga&#13;&#10;&#9; * @param col = colonna&#13;&#10;&#9; * @param dir = 1)alto, 2)destra, 3) basso, 4)sinistra&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;&#13;&#10;&#9;public boolean moveCar(int row, int col, int dir) {&#13;&#10;&#9;&#9;switch(dir){&#13;&#10;&#9;&#9;&#9;//Caso in cui spostiamo la macchina in avanti.&#13;&#10;&#9;&#9;&#9;case 1:&#13;&#10;&#9;&#9;&#9;&#9;//nuova posizione occupata o limite di matrice sopra&#13;&#10;&#9;&#9;&#9;&#9;if(row == 0 || griglia[row-1][col] != 0) return false;&#13;&#10;&#9;&#9;&#9;&#9;griglia[row-1][col] = griglia[row][col];&#13;&#10;&#9;&#9;&#9;&#9;griglia[row][col] = 0;&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#9;case 2:&#13;&#10;&#9;&#9;&#9;&#9;//nuova posizione occupato o limite matrice destra&#13;&#10;&#9;&#9;&#9;&#9;if(col == 5 || griglia[row][col+1] != 0 ) return false;&#13;&#10;&#9;&#9;&#9;&#9;griglia[row][col+1] = griglia[row][col];&#13;&#10;&#9;&#9;&#9;&#9;griglia[row][col] = 0;&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#9;case 3:&#13;&#10;&#9;&#9;&#9;&#9;//nuova posizione occupata o limite matrice sotto.&#13;&#10;&#9;&#9;&#9;&#9;if( row == 5 || griglia[row+1][col] != 0 ) return false;&#13;&#10;&#9;&#9;&#9;&#9;griglia[row+1][col] = griglia[row][col];&#13;&#10;&#9;&#9;&#9;&#9;griglia[row][col] = 0;&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#9;case 4:&#13;&#10;&#9;&#9;&#9;&#9;//nuova posizione occupata o limite matrice sinistra&#13;&#10;&#9;&#9;&#9;&#9;if( col == 0 || griglia[row][col-1] != 0 ) return false;&#13;&#10;&#9;&#9;&#9;&#9;griglia[row][col-1] = griglia[row][col];&#13;&#10;&#9;&#9;&#9;&#9;griglia[row][col] = 0;&#13;&#10;&#9;&#9;&#9;&#9;return true;&#13;&#10;&#9;&#9;&#9;&#9;&#13;&#10;&#9;&#9;&#9;default: return false; //caso in cui dir &gt; 4&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#13;&#10;&#9;&#9;}&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;public boolean redCarAtExit(){&#13;&#10;&#9;&#9;&#13;&#10;&#9;&#9;if(griglia[2][5]==1)return true;&#13;&#10;&#9;&#9;return false;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#13;&#10;&#9;public void stampaGriglia() {&#13;&#10;&#9;&#9;for(int i = 0; i &lt; 6; i++){&#13;&#10;&#9;&#9;&#9;for(int j = 0; j &lt; 6; j++){&#13;&#10;&#9;&#9;&#9;&#9;System.out.print(griglia[i][j] + &quot; | &quot;);&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;System.out.println();&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#13;&#10;public static void main(String[] args) {&#13;&#10;&#9;RushHour rh = new RushHour();&#13;&#10;&#9;if(!rh.moveCar(0, 3, 7)) System.out.println(&quot;ERRORE COGLIONE&quot;);&#13;&#10;&#9;rh.stampaGriglia();&#13;&#10;}&#13;&#10;&#13;&#10;}&#13;&#10;&#13;&#10;" Filename="RushHour.java" Intrnl_Id="1"/>
+</SrcFileList>
+<CritList>
+<CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.SynchronizedStatementCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.QMOCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+</CritList>
+<BoolOpList>
+<BoolOp Arity="1" Intrnl_Id="2" Name="not (!)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="0" Value="true"/>
+<MapEntry BoolAssgnmnt="1" Value="false"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+<BoolOp Arity="2" Intrnl_Id="3" Name="conditional or (||)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="01" Value="true"/>
+<MapEntry BoolAssgnmnt="00" Value="false"/>
+<MapEntry BoolAssgnmnt="12" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+</BoolOpList>
+<HierarchyLvlTypeList>
+<HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="4"/>
+<HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="5"/>
+<HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="6"/>
+<HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="7"/>
+</HierarchyLvlTypeList>
+<MASTRoot>
+<HierarchyLvl HierarchyLvlId="9" HierarchyLvlTypeId="7" Intrnl_Id="8" Name="default package">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="8" HierarchyLvlTypeId="4" Intrnl_Id="9" Name="rushgame">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="7" HierarchyLvlTypeId="5" Intrnl_Id="10" Name="RushHour">
+<Header>
+<Loc EndOffset="42" SrcFileId="1" StartOffset="21"/>
+</Header>
+<LocList>
+<Loc EndOffset="1991" SrcFileId="1" StartOffset="21"/>
+</LocList>
+<StmntSeq Intrnl_Id="11">
+<LocList>
+<Loc EndOffset="86" SrcFileId="1" StartOffset="47"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="12">
+<LocList>
+<Loc EndOffset="86" SrcFileId="1" StartOffset="47"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<HierarchyLvl HierarchyLvlId="2" HierarchyLvlTypeId="6" Intrnl_Id="13" Name="RushHour">
+<Header>
+<Loc EndOffset="109" SrcFileId="1" StartOffset="92"/>
+</Header>
+<LocList>
+<Loc EndOffset="247" SrcFileId="1" StartOffset="92"/>
+</LocList>
+<StmntSeq Intrnl_Id="14">
+<LocList>
+<Loc EndOffset="133" SrcFileId="1" StartOffset="115"/>
+<Loc EndOffset="155" SrcFileId="1" StartOffset="137"/>
+<Loc EndOffset="177" SrcFileId="1" StartOffset="159"/>
+<Loc EndOffset="199" SrcFileId="1" StartOffset="181"/>
+<Loc EndOffset="221" SrcFileId="1" StartOffset="203"/>
+<Loc EndOffset="243" SrcFileId="1" StartOffset="225"/>
+</LocList>
+<BasicStmnt CovItemId="S2" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="15">
+<LocList>
+<Loc EndOffset="133" SrcFileId="1" StartOffset="115"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="16">
+<LocList>
+<Loc EndOffset="155" SrcFileId="1" StartOffset="137"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="17">
+<LocList>
+<Loc EndOffset="177" SrcFileId="1" StartOffset="159"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S5" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="18">
+<LocList>
+<Loc EndOffset="199" SrcFileId="1" StartOffset="181"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S6" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="19">
+<LocList>
+<Loc EndOffset="221" SrcFileId="1" StartOffset="203"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="20">
+<LocList>
+<Loc EndOffset="243" SrcFileId="1" StartOffset="225"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="3" HierarchyLvlTypeId="6" Intrnl_Id="21" Name="moveCar">
+<Header>
+<Loc EndOffset="488" SrcFileId="1" StartOffset="439"/>
+</Header>
+<LocList>
+<Loc EndOffset="1536" SrcFileId="1" StartOffset="439"/>
+</LocList>
+<StmntSeq Intrnl_Id="22">
+<LocList>
+<Loc EndOffset="1530" SrcFileId="1" StartOffset="494"/>
+</LocList>
+<CondStmnt CovItemId="S8" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="23">
+<Branch CovItemId="B1" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="24">
+<Cond>
+<Loc EndOffset="568" SrcFileId="1" StartOffset="562"/>
+</Cond>
+<LocList>
+<Loc EndOffset="779" SrcFileId="1" StartOffset="633"/>
+</LocList>
+<StmntSeq Intrnl_Id="25">
+<LocList>
+<Loc EndOffset="687" SrcFileId="1" StartOffset="633"/>
+<Loc EndOffset="733" SrcFileId="1" StartOffset="693"/>
+<Loc EndOffset="761" SrcFileId="1" StartOffset="739"/>
+<Loc EndOffset="779" SrcFileId="1" StartOffset="767"/>
+</LocList>
+<CondStmnt CovItemId="S9" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="26">
+<Branch CovItemId="B2" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="27">
+<Cond/>
+<LocList>
+<Loc EndOffset="687" SrcFileId="1" StartOffset="674"/>
+</LocList>
+<StmntSeq Intrnl_Id="28">
+<LocList>
+<Loc EndOffset="687" SrcFileId="1" StartOffset="674"/>
+</LocList>
+<BasicStmnt CovItemId="S10" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="29">
+<LocList>
+<Loc EndOffset="687" SrcFileId="1" StartOffset="674"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B3" CovItemPrefix="rushgame.RushHour.java" Implct="true" Intrnl_Id="30">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="31">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="635" SrcFileId="1" StartOffset="633"/>
+<LocList>
+<Loc EndOffset="687" SrcFileId="1" StartOffset="633"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="32">
+<OpTerm BooleanOpId="3" Intrnl_Id="33">
+<BasicBoolTerm Intrnl_Id="34">
+<LocList>
+<Loc EndOffset="644" SrcFileId="1" StartOffset="636"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="35">
+<LocList>
+<Loc EndOffset="672" SrcFileId="1" StartOffset="648"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="647" SrcFileId="1" StartOffset="645"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S11" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="36">
+<LocList>
+<Loc EndOffset="733" SrcFileId="1" StartOffset="693"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S12" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="37">
+<LocList>
+<Loc EndOffset="761" SrcFileId="1" StartOffset="739"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S13" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="38">
+<LocList>
+<Loc EndOffset="779" SrcFileId="1" StartOffset="767"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B4" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="39">
+<Cond>
+<Loc EndOffset="795" SrcFileId="1" StartOffset="789"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1005" SrcFileId="1" StartOffset="858"/>
+</LocList>
+<StmntSeq Intrnl_Id="40">
+<LocList>
+<Loc EndOffset="913" SrcFileId="1" StartOffset="858"/>
+<Loc EndOffset="959" SrcFileId="1" StartOffset="919"/>
+<Loc EndOffset="987" SrcFileId="1" StartOffset="965"/>
+<Loc EndOffset="1005" SrcFileId="1" StartOffset="993"/>
+</LocList>
+<CondStmnt CovItemId="S14" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="41">
+<Branch CovItemId="B5" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="42">
+<Cond/>
+<LocList>
+<Loc EndOffset="913" SrcFileId="1" StartOffset="900"/>
+</LocList>
+<StmntSeq Intrnl_Id="43">
+<LocList>
+<Loc EndOffset="913" SrcFileId="1" StartOffset="900"/>
+</LocList>
+<BasicStmnt CovItemId="S15" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="44">
+<LocList>
+<Loc EndOffset="913" SrcFileId="1" StartOffset="900"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B6" CovItemPrefix="rushgame.RushHour.java" Implct="true" Intrnl_Id="45">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="46">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="860" SrcFileId="1" StartOffset="858"/>
+<LocList>
+<Loc EndOffset="913" SrcFileId="1" StartOffset="858"/>
+</LocList>
+<RootTerm CovItemId="C2" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="47">
+<OpTerm BooleanOpId="3" Intrnl_Id="48">
+<BasicBoolTerm Intrnl_Id="49">
+<LocList>
+<Loc EndOffset="869" SrcFileId="1" StartOffset="861"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="50">
+<LocList>
+<Loc EndOffset="897" SrcFileId="1" StartOffset="873"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="872" SrcFileId="1" StartOffset="870"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S16" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="51">
+<LocList>
+<Loc EndOffset="959" SrcFileId="1" StartOffset="919"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S17" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="52">
+<LocList>
+<Loc EndOffset="987" SrcFileId="1" StartOffset="965"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S18" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="53">
+<LocList>
+<Loc EndOffset="1005" SrcFileId="1" StartOffset="993"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B7" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="54">
+<Cond>
+<Loc EndOffset="1022" SrcFileId="1" StartOffset="1016"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1233" SrcFileId="1" StartOffset="1085"/>
+</LocList>
+<StmntSeq Intrnl_Id="55">
+<LocList>
+<Loc EndOffset="1141" SrcFileId="1" StartOffset="1085"/>
+<Loc EndOffset="1187" SrcFileId="1" StartOffset="1147"/>
+<Loc EndOffset="1215" SrcFileId="1" StartOffset="1193"/>
+<Loc EndOffset="1233" SrcFileId="1" StartOffset="1221"/>
+</LocList>
+<CondStmnt CovItemId="S19" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="56">
+<Branch CovItemId="B8" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="57">
+<Cond/>
+<LocList>
+<Loc EndOffset="1141" SrcFileId="1" StartOffset="1128"/>
+</LocList>
+<StmntSeq Intrnl_Id="58">
+<LocList>
+<Loc EndOffset="1141" SrcFileId="1" StartOffset="1128"/>
+</LocList>
+<BasicStmnt CovItemId="S20" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="59">
+<LocList>
+<Loc EndOffset="1141" SrcFileId="1" StartOffset="1128"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B9" CovItemPrefix="rushgame.RushHour.java" Implct="true" Intrnl_Id="60">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="61">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1087" SrcFileId="1" StartOffset="1085"/>
+<LocList>
+<Loc EndOffset="1141" SrcFileId="1" StartOffset="1085"/>
+</LocList>
+<RootTerm CovItemId="C3" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="62">
+<OpTerm BooleanOpId="3" Intrnl_Id="63">
+<BasicBoolTerm Intrnl_Id="64">
+<LocList>
+<Loc EndOffset="1097" SrcFileId="1" StartOffset="1089"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="65">
+<LocList>
+<Loc EndOffset="1125" SrcFileId="1" StartOffset="1101"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1100" SrcFileId="1" StartOffset="1098"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S21" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="66">
+<LocList>
+<Loc EndOffset="1187" SrcFileId="1" StartOffset="1147"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S22" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="67">
+<LocList>
+<Loc EndOffset="1215" SrcFileId="1" StartOffset="1193"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S23" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="68">
+<LocList>
+<Loc EndOffset="1233" SrcFileId="1" StartOffset="1221"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B10" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="69">
+<Cond>
+<Loc EndOffset="1250" SrcFileId="1" StartOffset="1244"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1463" SrcFileId="1" StartOffset="1315"/>
+</LocList>
+<StmntSeq Intrnl_Id="70">
+<LocList>
+<Loc EndOffset="1371" SrcFileId="1" StartOffset="1315"/>
+<Loc EndOffset="1417" SrcFileId="1" StartOffset="1377"/>
+<Loc EndOffset="1445" SrcFileId="1" StartOffset="1423"/>
+<Loc EndOffset="1463" SrcFileId="1" StartOffset="1451"/>
+</LocList>
+<CondStmnt CovItemId="S24" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="71">
+<Branch CovItemId="B11" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="72">
+<Cond/>
+<LocList>
+<Loc EndOffset="1371" SrcFileId="1" StartOffset="1358"/>
+</LocList>
+<StmntSeq Intrnl_Id="73">
+<LocList>
+<Loc EndOffset="1371" SrcFileId="1" StartOffset="1358"/>
+</LocList>
+<BasicStmnt CovItemId="S25" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="74">
+<LocList>
+<Loc EndOffset="1371" SrcFileId="1" StartOffset="1358"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B12" CovItemPrefix="rushgame.RushHour.java" Implct="true" Intrnl_Id="75">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="76">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1317" SrcFileId="1" StartOffset="1315"/>
+<LocList>
+<Loc EndOffset="1371" SrcFileId="1" StartOffset="1315"/>
+</LocList>
+<RootTerm CovItemId="C4" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="77">
+<OpTerm BooleanOpId="3" Intrnl_Id="78">
+<BasicBoolTerm Intrnl_Id="79">
+<LocList>
+<Loc EndOffset="1327" SrcFileId="1" StartOffset="1319"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="80">
+<LocList>
+<Loc EndOffset="1355" SrcFileId="1" StartOffset="1331"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1330" SrcFileId="1" StartOffset="1328"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S26" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="81">
+<LocList>
+<Loc EndOffset="1417" SrcFileId="1" StartOffset="1377"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S27" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="82">
+<LocList>
+<Loc EndOffset="1445" SrcFileId="1" StartOffset="1423"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S28" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="83">
+<LocList>
+<Loc EndOffset="1463" SrcFileId="1" StartOffset="1451"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B13" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="84">
+<Cond>
+<Loc EndOffset="1481" SrcFileId="1" StartOffset="1474"/>
+</Cond>
+<LocList>
+<Loc EndOffset="1496" SrcFileId="1" StartOffset="1483"/>
+</LocList>
+<StmntSeq Intrnl_Id="85">
+<LocList>
+<Loc EndOffset="1496" SrcFileId="1" StartOffset="1483"/>
+</LocList>
+<BasicStmnt CovItemId="S29" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="86">
+<LocList>
+<Loc EndOffset="1496" SrcFileId="1" StartOffset="1483"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="500" SrcFileId="1" StartOffset="494"/>
+<LocList>
+<Loc EndOffset="1530" SrcFileId="1" StartOffset="494"/>
+</LocList>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="4" HierarchyLvlTypeId="6" Intrnl_Id="87" Name="redCarAtExit">
+<Header>
+<Loc EndOffset="1571" SrcFileId="1" StartOffset="1542"/>
+</Header>
+<LocList>
+<Loc EndOffset="1633" SrcFileId="1" StartOffset="1542"/>
+</LocList>
+<StmntSeq Intrnl_Id="88">
+<LocList>
+<Loc EndOffset="1612" SrcFileId="1" StartOffset="1580"/>
+<Loc EndOffset="1629" SrcFileId="1" StartOffset="1616"/>
+</LocList>
+<CondStmnt CovItemId="S30" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="89">
+<Branch CovItemId="B14" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="90">
+<Cond/>
+<LocList>
+<Loc EndOffset="1612" SrcFileId="1" StartOffset="1600"/>
+</LocList>
+<StmntSeq Intrnl_Id="91">
+<LocList>
+<Loc EndOffset="1612" SrcFileId="1" StartOffset="1600"/>
+</LocList>
+<BasicStmnt CovItemId="S31" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="92">
+<LocList>
+<Loc EndOffset="1612" SrcFileId="1" StartOffset="1600"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B15" CovItemPrefix="rushgame.RushHour.java" Implct="true" Intrnl_Id="93">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="94">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1582" SrcFileId="1" StartOffset="1580"/>
+<LocList>
+<Loc EndOffset="1612" SrcFileId="1" StartOffset="1580"/>
+</LocList>
+<RootTerm CovItemId="C5" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="95">
+<BasicBoolTerm Intrnl_Id="96">
+<LocList>
+<Loc EndOffset="1599" SrcFileId="1" StartOffset="1583"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S32" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="97">
+<LocList>
+<Loc EndOffset="1629" SrcFileId="1" StartOffset="1616"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="5" HierarchyLvlTypeId="6" Intrnl_Id="98" Name="stampaGriglia">
+<Header>
+<Loc EndOffset="1668" SrcFileId="1" StartOffset="1641"/>
+</Header>
+<LocList>
+<Loc EndOffset="1819" SrcFileId="1" StartOffset="1641"/>
+</LocList>
+<StmntSeq Intrnl_Id="99">
+<LocList>
+<Loc EndOffset="1815" SrcFileId="1" StartOffset="1674"/>
+</LocList>
+<LoopStmnt CovItemId="S33" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="100" MltplExecId="L1-2" MltplExecPrefix="rushgame.RushHour.java" NvrExecId="L1-0" NvrExecPrefix="rushgame.RushHour.java" OnceExecutedId="L1-1" OnceExecutedPrefix="rushgame.RushHour.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="101">
+<LocList>
+<Loc EndOffset="1785" SrcFileId="1" StartOffset="1706"/>
+<Loc EndOffset="1810" SrcFileId="1" StartOffset="1789"/>
+</LocList>
+<LoopStmnt CovItemId="S34" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="102" MltplExecId="L2-2" MltplExecPrefix="rushgame.RushHour.java" NvrExecId="L2-0" NvrExecPrefix="rushgame.RushHour.java" OnceExecutedId="L2-1" OnceExecutedPrefix="rushgame.RushHour.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="103">
+<LocList>
+<Loc EndOffset="1779" SrcFileId="1" StartOffset="1739"/>
+</LocList>
+<BasicStmnt CovItemId="S35" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="104">
+<LocList>
+<Loc EndOffset="1779" SrcFileId="1" StartOffset="1739"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="1709" SrcFileId="1" StartOffset="1706"/>
+<LocList>
+<Loc EndOffset="1785" SrcFileId="1" StartOffset="1706"/>
+</LocList>
+<RootTerm CovItemId="C7" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="105">
+<BasicBoolTerm Intrnl_Id="106">
+<LocList>
+<Loc EndOffset="1726" SrcFileId="1" StartOffset="1721"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S36" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="107">
+<LocList>
+<Loc EndOffset="1810" SrcFileId="1" StartOffset="1789"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="1677" SrcFileId="1" StartOffset="1674"/>
+<LocList>
+<Loc EndOffset="1815" SrcFileId="1" StartOffset="1674"/>
+</LocList>
+<RootTerm CovItemId="C6" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="108">
+<BasicBoolTerm Intrnl_Id="109">
+<LocList>
+<Loc EndOffset="1694" SrcFileId="1" StartOffset="1689"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</LoopStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="6" HierarchyLvlTypeId="6" Intrnl_Id="110" Name="main">
+<Header>
+<Loc EndOffset="1861" SrcFileId="1" StartOffset="1823"/>
+</Header>
+<LocList>
+<Loc EndOffset="1986" SrcFileId="1" StartOffset="1823"/>
+</LocList>
+<StmntSeq Intrnl_Id="111">
+<LocList>
+<Loc EndOffset="1895" SrcFileId="1" StartOffset="1866"/>
+<Loc EndOffset="1961" SrcFileId="1" StartOffset="1898"/>
+<Loc EndOffset="1983" SrcFileId="1" StartOffset="1964"/>
+</LocList>
+<BasicStmnt CovItemId="S37" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="112">
+<LocList>
+<Loc EndOffset="1895" SrcFileId="1" StartOffset="1866"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S38" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="113">
+<Branch CovItemId="B16" CovItemPrefix="rushgame.RushHour.java" Implct="false" Intrnl_Id="114">
+<Cond/>
+<LocList>
+<Loc EndOffset="1961" SrcFileId="1" StartOffset="1923"/>
+</LocList>
+<StmntSeq Intrnl_Id="115">
+<LocList>
+<Loc EndOffset="1961" SrcFileId="1" StartOffset="1923"/>
+</LocList>
+<BasicStmnt CovItemId="S39" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="116">
+<LocList>
+<Loc EndOffset="1961" SrcFileId="1" StartOffset="1923"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B17" CovItemPrefix="rushgame.RushHour.java" Implct="true" Intrnl_Id="117">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="118">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="1900" SrcFileId="1" StartOffset="1898"/>
+<LocList>
+<Loc EndOffset="1961" SrcFileId="1" StartOffset="1898"/>
+</LocList>
+<RootTerm CovItemId="C8" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="119">
+<OpTerm BooleanOpId="2" Intrnl_Id="120">
+<BasicBoolTerm Intrnl_Id="121">
+<LocList>
+<Loc EndOffset="1921" SrcFileId="1" StartOffset="1902"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="1902" SrcFileId="1" StartOffset="1901"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S40" CovItemPrefix="rushgame.RushHour.java" Intrnl_Id="122">
+<LocList>
+<Loc EndOffset="1983" SrcFileId="1" StartOffset="1964"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</MASTRoot>
+<TestSession Comment="" Date="1495702704154" Name="25-mag-2017 10.58.24">
+<TestCase Comment="" Date="1495702704094" Name="rushgame.RushHourTest:testRedCarAtExit">
+<CovList>
+<CovPrefix CovItemPrefix="rushgame.RushHour.java">
+<Cov CovItemId="B15" Value="1"/>
+<Cov CovItemId="S1" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S30" Value="1"/>
+<Cov CovItemId="S32" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="1"/>
+<Cov CovItemId="S6" Value="1"/>
+<Cov CovItemId="S7" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="rushgame.RushHour.java">
+<AssgnmntListEntry Length="1" RootTermCovItemId="C5">
+<MapEntry BoolAssgnmnt="0" Value="1"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<TestCase Comment="" Date="1495702704104" Name="rushgame.RushHourTest:testMoveCar">
+<CovList>
+<CovPrefix CovItemPrefix="rushgame.RushHour.java">
+<Cov CovItemId="B1" Value="1"/>
+<Cov CovItemId="B2" Value="1"/>
+<Cov CovItemId="B4" Value="1"/>
+<Cov CovItemId="B6" Value="1"/>
+<Cov CovItemId="S1" Value="1"/>
+<Cov CovItemId="S10" Value="1"/>
+<Cov CovItemId="S14" Value="1"/>
+<Cov CovItemId="S16" Value="1"/>
+<Cov CovItemId="S17" Value="1"/>
+<Cov CovItemId="S18" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="1"/>
+<Cov CovItemId="S6" Value="1"/>
+<Cov CovItemId="S7" Value="1"/>
+<Cov CovItemId="S8" Value="2"/>
+<Cov CovItemId="S9" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList>
+<AssgnmntPrefix RootTermCovItemPrefix="rushgame.RushHour.java">
+<AssgnmntListEntry Length="2" RootTermCovItemId="C1">
+<MapEntry BoolAssgnmnt="12" Value="1"/>
+</AssgnmntListEntry>
+<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
+<MapEntry BoolAssgnmnt="00" Value="1"/>
+</AssgnmntListEntry>
+</AssgnmntPrefix>
+</AssgnmntList>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<TestCase Comment="" Date="1495702704106" Name="rushgame.RushHourTest:testRushHour">
+<CovList>
+<CovPrefix CovItemPrefix="rushgame.RushHour.java">
+<Cov CovItemId="S1" Value="1"/>
+<Cov CovItemId="S2" Value="1"/>
+<Cov CovItemId="S3" Value="1"/>
+<Cov CovItemId="S4" Value="1"/>
+<Cov CovItemId="S5" Value="1"/>
+<Cov CovItemId="S6" Value="1"/>
+<Cov CovItemId="S7" Value="1"/>
+</CovPrefix>
+</CovList>
+<AssgnmntList/>
+<ObjMetaDataList/>
+<MetaDataList/>
+</TestCase>
+<MetaDataList/>
+</TestSession>
+</TestSessionContainer>
